@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import ThemeProvider from "@/context/Theme";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const inter = localFont({
   src: "./fonts/InterVF.ttf",
@@ -27,8 +32,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}} h-full antialiased`}>
-      <body className="flex min-h-full flex-col">{children}</body>
+    <html
+      suppressHydrationWarning
+      lang="en"
+      className={cn("}", "h-full", "antialiased", inter.variable, spaceGrotesk.variable, "font-sans", geist.variable)}
+    >
+      <body className="flex min-h-full flex-col">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          {" "}
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

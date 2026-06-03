@@ -5,6 +5,7 @@ import ThemeProvider from "@/context/Theme";
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/navigation/navbar";
+import {Toaster } from '@/components/ui/sonner';
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -39,7 +40,10 @@ export default function RootLayout({
       className={cn("}", "h-full", "antialiased", inter.variable, spaceGrotesk.variable, "font-sans", geist.variable)}
     >
       <body className="flex min-h-full flex-col">
+
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+                  <Toaster/>
+
           {children}
         </ThemeProvider>
       </body>

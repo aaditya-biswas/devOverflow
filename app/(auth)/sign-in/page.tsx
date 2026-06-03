@@ -1,4 +1,3 @@
-import AuthCard from "@/components/auth/authCard";
 import React from "react";
 
 const SignIn = () => {

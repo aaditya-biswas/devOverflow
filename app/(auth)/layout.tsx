@@ -16,7 +16,6 @@ const AuthLayout = ({ children }: { children: ReactNode }) => {
       <Image src = "images/site-logo.svg" alt="dev Flow logo" width={50} height={50}className="object-contain"></Image>
     </div>
     {children}
-    <p>Social Auth</p>
     <SocialAuthForm/ >
     </section>
   </main>);
